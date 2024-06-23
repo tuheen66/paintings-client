@@ -14,7 +14,7 @@ const AddCraftItem = () => {
     const price = form.price.value;
     const rating = form.rating.value;
     const customization = form.customization.value;
-    const totalVisitors = form.processingTime.value;
+    const processingTime = form.processingTime.value;
     const stockStatus = form.stockStatus.value;
     const description = form.description.value;
 
@@ -27,7 +27,7 @@ const AddCraftItem = () => {
       price,
       rating,
       customization,
-      totalVisitors,
+      processingTime,
       stockStatus,
       description,
     };
