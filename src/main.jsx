@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Root from './Root/Root';
 import Home from './Pages/Home';
+import AddCraftItem from './Pages/AddCraftItem';
 
 
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path:'/',
         element: <Home></Home>
+      },
+      {
+        path:'/add-craft-item',
+        element:<AddCraftItem></AddCraftItem>
       }
     ]
   },
