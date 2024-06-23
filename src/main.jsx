@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Root/Root";
 import Home from "./Pages/Home";
 import AddCraftItem from "./Pages/AddCraftItem";
+import UpdateCrafts from './Pages/UpdateCrafts';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
       {
         path: "/add-craft-item",
         element: <AddCraftItem></AddCraftItem>,
+      },
+      {
+        path: "/update-craft-item/:id",
+        element: <UpdateCrafts></UpdateCrafts>,
+        loader:({params})=> fetch(`http://localhost:5000/arts-craft/${params.id}`)
       },
     ],
   },

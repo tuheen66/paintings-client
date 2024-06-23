@@ -1,9 +1,8 @@
 import { NavLink } from "react-router-dom";
 
-
 const Navbar = () => {
-    return (
-        <div>
+  return (
+    <div>
       <div className="flex flex-col gap-4 lg:gap-4 lg:flex-row justify-between items-center w-[90%] mx-auto bg-blue-200 shadow-xl pb-8 lg:pb-0 mb-4  px-2">
         <div className="flex items-center">
           <img className="w-16 py-2" src="" alt="" />
@@ -18,6 +17,7 @@ const Navbar = () => {
             <NavLink to="/all-art-craft">All Art & Craft Items</NavLink>
             <NavLink to="/add-craft-item">Add Craft Item</NavLink>
             <NavLink to="/my-art-craft">My Art & Craft List</NavLink>
+            
           </div>
         </div>
 
@@ -31,25 +31,20 @@ const Navbar = () => {
           </div>
 
           <div>
-            
-              <div>
-                
-                  <button className="btn btn-sm lg:btn-md border-none rounded-none mr-2 bg-[#f0932b] hover:bg-[#30336b] text-white">
-                    Login
-                  </button>
-               
-                
-                  <button className="btn btn-sm lg:btn-md rounded-none border-none bg-[#f0932b] hover:bg-[#30336b] text-white">
-                    Register
-                  </button>
-               
-              </div>
-          
+            <div>
+              <button className="btn btn-sm lg:btn-md border-none rounded-none mr-2 bg-[#f0932b] hover:bg-[#30336b] text-white">
+                Login
+              </button>
+
+              <button className="btn btn-sm lg:btn-md rounded-none border-none bg-[#f0932b] hover:bg-[#30336b] text-white">
+                Register
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Navbar;
