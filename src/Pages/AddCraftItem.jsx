@@ -1,12 +1,68 @@
-
+import Swal from "sweetalert2";
 
 const AddCraftItem = () => {
-    return (
-        <div>
-            <div className="w-[90%] lg:w-1/2 bg-[#7ed6df] p-8 mx-auto text-gray-700 mb-8">
+  const handleAddCrafts = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const userName = form.userName.value;
+    const email = form.email.value;
+    const image = form.image.value;
+    const itemName = form.itemName.value;
+    const subcategoryName = form.subcategoryName.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const customization = form.customization.value;
+    const totalVisitors = form.processingTime.value;
+    const stockStatus = form.stockStatus.value;
+    const description = form.description.value;
+
+    const newCraftItem = {
+      userName,
+      email,
+      image,
+      itemName,
+      subcategoryName,
+      price,
+      rating,
+      customization,
+      totalVisitors,
+      stockStatus,
+      description,
+    };
+
+    console.log(newCraftItem);
+
+    fetch("http://localhost:5000/arts-craft", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCraftItem),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+
+        if (data.insertedId) {
+          Swal.fire({
+            title: "success!",
+            text: "Craft added successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+        form.reset();
+      });
+  };
+
+  return (
+    <div>
+      <div className="w-[90%] lg:w-1/2 bg-[#7ed6df] p-8 mx-auto text-gray-700 mb-8">
         <h2 className="text-center text-4xl font-bold">Add Craft Item</h2>
 
-        <form className="form-action">
+        <form onSubmit={handleAddCrafts} className="form-action">
           {/* user name and user email row */}
           <div className="lg:flex gap-4 mt-8">
             <div className="w-full">
@@ -19,6 +75,7 @@ const AddCraftItem = () => {
                 placeholder="User name"
                 name="userName"
                 id="userName"
+                required
               />
             </div>
 
@@ -32,6 +89,7 @@ const AddCraftItem = () => {
                 placeholder="User email"
                 name="email"
                 id="email"
+                required
               />
             </div>
           </div>
@@ -46,6 +104,7 @@ const AddCraftItem = () => {
               placeholder="Image url"
               name="image"
               id="image"
+              required
             />
           </div>
 
@@ -61,6 +120,7 @@ const AddCraftItem = () => {
                 placeholder="Item Name"
                 name="itemName"
                 id="item_name"
+                required
               />
             </div>
 
@@ -74,6 +134,7 @@ const AddCraftItem = () => {
                 placeholder="Sub Category"
                 name="subcategoryName"
                 id="subcategory_Name"
+                required
               />
             </div>
           </div>
@@ -90,6 +151,7 @@ const AddCraftItem = () => {
                 placeholder="Price"
                 name="price"
                 id="price"
+                required
               />
             </div>
 
@@ -103,6 +165,7 @@ const AddCraftItem = () => {
                 placeholder="Rating"
                 name="rating"
                 id="rating"
+                required
               />
             </div>
           </div>
@@ -119,6 +182,7 @@ const AddCraftItem = () => {
                 placeholder="Customization - yes OR no"
                 name="customization"
                 id="customization"
+                required
               />
             </div>
 
@@ -132,14 +196,15 @@ const AddCraftItem = () => {
                 placeholder="Processing time"
                 name="processingTime"
                 id="processing_time"
+                required
               />
             </div>
           </div>
-          {/* seasonality */}
+          {/* stock status */}
           <div className="flex gap-4">
             <div className="w-full">
               <label className="pl-4 font-bold" htmlFor="stock_status">
-              Stock Status:
+                Stock Status:
               </label>
               <input
                 className="bg-gray-200 py-2 px-4 w-full mb-2"
@@ -147,6 +212,7 @@ const AddCraftItem = () => {
                 placeholder="Stock Status - In stock OR Made to Order"
                 name="stockStatus"
                 id="stock_status"
+                required
               />
             </div>
           </div>
@@ -163,6 +229,7 @@ const AddCraftItem = () => {
                 placeholder="Description"
                 name="description"
                 id="description"
+                required
               ></textarea>
             </div>
           </div>
@@ -175,9 +242,8 @@ const AddCraftItem = () => {
           />
         </form>
       </div>
-            
-        </div>
-    );
+    </div>
+  );
 };
 
 export default AddCraftItem;
