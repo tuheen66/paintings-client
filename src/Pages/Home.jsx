@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import CraftCardHome from "../components/CraftCardHome";
 import Slider from "../components/Slider";
+import Categories from "../components/Categories";
 
 const Home = () => {
   const craftItems = useLoaderData();
@@ -23,6 +24,8 @@ const Home = () => {
           <CraftCardHome key={myCraft._id} myCraft={myCraft}></CraftCardHome>
         ))}
       </div>
+      <h2 className="text-4xl font-bold text-center mt-16  ">Categories</h2>
+      <Categories></Categories>
     </div>
   );
 };
