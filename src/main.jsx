@@ -11,6 +11,7 @@ import AddCraftItem from "./Pages/AddCraftItem";
 import MyArtCraftList from "./Pages/MyArtCraftList";
 import UpdateCraftItem from "./Pages/UpdateCraftItem";
 import AllCraftItems from "./Pages/AllCraftItems";
+import ViewDetails from "./Pages/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
         path:'/allCraftItem',
         element:<AllCraftItems></AllCraftItems>,
         loader: () => fetch("http://localhost:5000/arts-craft"),
+      },
+      {
+        path:'/viewDetails/:id',
+        element:<ViewDetails></ViewDetails>,
+        loader:({params})=>fetch(`http://localhost:5000/arts-craft/${params.id}`)
       }
     ],
   },

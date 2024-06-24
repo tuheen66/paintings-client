@@ -1,22 +1,9 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllCraftItems = () => {
   const allCraftItems = useLoaderData();
 
-  const {
-    userName,
-    email,
-    image,
-    itemName,
-    subcategoryName,
-    price,
-    rating,
-    customization,
-    processingTime,
-    stockStatus,
-    description,
-  } = allCraftItems;
-
+  
   return (
     <div className="w-[90%] mx-auto">
       <div className="overflow-x-auto">
@@ -61,7 +48,8 @@ const AllCraftItems = () => {
                 <td>{craftItem.rating}</td>
                 <td>{craftItem.stockStatus}</td>
                 <th>
-                  <button className="btn bg-[#f0932b] text-white rounded-none   btn-sm hover:bg-[#30336b]">View Details</button>
+                  <Link to={`/viewDetails/${craftItem._id}`}>
+                  <button className="btn bg-[#f0932b] text-white rounded-none   btn-sm hover:bg-[#30336b]">View Details</button></Link>
                 </th>
               </tr>
             ))}

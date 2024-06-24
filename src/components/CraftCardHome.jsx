@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 const CraftCardHome = ({ myCraft }) => {
   const {
+    _id,
     image,
     itemName,
     subcategoryName,
@@ -47,11 +50,11 @@ const CraftCardHome = ({ myCraft }) => {
           <span className="font-bold">Description:</span>{" "}
           {description.slice(0, 150) + " . . ."}
         </p>
-        {/* <Link to={`view-details/${_id}`}> */}
+        <Link to={`viewDetails/${_id}`}>
           <button className="btn btn-sm bg-[#f0932b] hover:bg-[#30336b] w-full border-none text-white rounded-none font-bold mt-4">
             View Details
           </button>
-        {/* </Link> */}
+        </Link>
       </div>
     </div>
   );
