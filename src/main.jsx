@@ -10,6 +10,7 @@ import AddCraftItem from "./Pages/AddCraftItem";
 
 import MyArtCraftList from "./Pages/MyArtCraftList";
 import UpdateCraftItem from "./Pages/UpdateCraftItem";
+import AllCraftItems from "./Pages/AllCraftItems";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/arts-craft"),
       },
       {
-        path: "/add-craft-item",
+        path: "/addCraftItem",
         element: <AddCraftItem></AddCraftItem>,
       },
       {
@@ -32,10 +33,15 @@ const router = createBrowserRouter([
       },
       
       {
-        path: "/my-art-craft-list",
+        path: "/myArtCraftList",
         element: <MyArtCraftList></MyArtCraftList>,
         loader: () => fetch("http://localhost:5000/arts-craft"),
       },
+      {
+        path:'/allCraftItem',
+        element:<AllCraftItems></AllCraftItems>,
+        loader: () => fetch("http://localhost:5000/arts-craft"),
+      }
     ],
   },
 ]);

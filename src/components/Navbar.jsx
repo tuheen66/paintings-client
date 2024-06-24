@@ -14,9 +14,9 @@ const Navbar = () => {
         <div>
           <div className="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-8">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/all-art-craft">All Art & Craft Items</NavLink>
-            <NavLink to="/add-craft-item">Add Craft Item</NavLink>
-            <NavLink to="/my-art-craft-list">My Art & Craft List</NavLink>
+            <NavLink to="/allCraftItem">All Art & Craft Items</NavLink>
+            <NavLink to="/addCraftItem">Add Craft Item</NavLink>
+            <NavLink to="/myArtCraftList">My Art & Craft List</NavLink>
             
           </div>
         </div>
