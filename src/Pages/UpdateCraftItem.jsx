@@ -5,8 +5,7 @@ const UpdateCraftItem = () => {
   const loadedCraftItems = useLoaderData();
   const {
     _id,
-    userName,
-    email,
+    
     image,
     itemName,
     subcategoryName,
@@ -74,7 +73,7 @@ const UpdateCraftItem = () => {
         <form onSubmit={handleUpdateCrafts} className="form-action">
           {/* user name and user email row */}
           <div className="lg:flex gap-4 mt-8">
-            <div className="w-full">
+            {/* <div className="w-full">
               <label className="pl-4 font-bold" htmlFor="userName">
                 User name:
               </label>
@@ -88,9 +87,9 @@ const UpdateCraftItem = () => {
                 required
                 disabled
               />
-            </div>
+            </div> */}
 
-            <div className="w-full">
+            {/* <div className="w-full">
               <label className="pl-4 font-bold" htmlFor="email">
                 User email:
               </label>
@@ -104,7 +103,7 @@ const UpdateCraftItem = () => {
                 required
                 disabled
               />
-            </div>
+            </div> */}
           </div>
           {/* image row */}
           <div className="w-full">

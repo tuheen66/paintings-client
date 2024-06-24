@@ -1,19 +1,20 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
+
 /* eslint-disable react/prop-types */
 const MyArtCraftListCard = ({ newList, newLists, setNewLists }) => {
   const {
     _id,
     image,
     itemName,
-    subcategoryName,
+    
     customization,
     description,
     price,
     rating,
     stockStatus,
-    processingTime,
+    
   } = newList;
 
   const handleDelete = (_id) => {
@@ -56,29 +57,24 @@ const MyArtCraftListCard = ({ newList, newLists, setNewLists }) => {
 
         <div className="flex-grow space-y-2 p-4">
           <p className="font-bold text-2xl">{itemName}</p>
-          <p>
-            <span className="font-bold">Sub-category: </span>
-            {subcategoryName}
-          </p>
+          
           <p>
             <span className="font-bold">Price: </span>$ {price}
-          </p>
-          <p>
-            <span className="font-bold">Customization: </span>
-            {customization}
           </p>
           <p>
             <span className="font-bold">Rating: </span>
             {rating}
           </p>
           <p>
+            <span className="font-bold">Customization: </span>
+            {customization}
+          </p>
+         
+          <p>
             <span className="font-bold">Stock Status: </span>
             {stockStatus}
           </p>
-          <p>
-            <span className="font-bold">Processing Time: </span>
-            {processingTime}
-          </p>
+          
 
           <p>
             <span className="font-bold">Description:</span>

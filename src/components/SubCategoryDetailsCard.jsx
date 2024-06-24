@@ -25,16 +25,16 @@ const SubCategoryDetailsCard = ({ subcategory }) => {
           {subcategoryName}
         </p>
         <p>
-          <span className="font-bold">Processing Time: </span>
-          {processingTime}
+          <span className="font-bold">Price: </span>$ {price}
         </p>
         <p>
-          <span className="font-bold">Rating: </span>${rating}
+          <span className="font-bold">Rating: </span>
+          {rating}
         </p>
 
         <p>
-          <span className="font-bold">Price: </span>
-          {price}
+          <span className="font-bold">Processing Time: </span>
+          {processingTime}
         </p>
 
         <p>

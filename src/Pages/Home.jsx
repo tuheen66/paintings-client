@@ -2,6 +2,8 @@ import { useLoaderData } from "react-router-dom";
 import CraftCardHome from "../components/CraftCardHome";
 import Slider from "../components/Slider";
 import Categories from "../components/Categories";
+import TypeWriter from "../components/TypeWriter";
+import { Slide } from "react-awesome-reveal";
 
 const Home = () => {
   const craftItems = useLoaderData();
@@ -15,16 +17,18 @@ const Home = () => {
   return (
     <div className="w-[90%] mx-auto">
       <Slider></Slider>
-      <div>
+      <Slide>
         <h2 className="text-4xl font-bold text-center  mb-8">Craft Items</h2>
-      </div>
+      </Slide>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {myCraftItems.map((myCraft) => (
           <CraftCardHome key={myCraft._id} myCraft={myCraft}></CraftCardHome>
         ))}
       </div>
-      <h2 className="text-4xl font-bold text-center mt-16  ">Categories</h2>
+      <Slide>
+        <TypeWriter></TypeWriter>
+      </Slide>
       <Categories></Categories>
     </div>
   );
