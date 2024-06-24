@@ -7,8 +7,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Root/Root";
 import Home from "./Pages/Home";
 import AddCraftItem from "./Pages/AddCraftItem";
-import UpdateCrafts from "./Pages/UpdateCrafts";
+
 import MyArtCraftList from "./Pages/MyArtCraftList";
+import UpdateCraftItem from "./Pages/UpdateCraftItem";
 
 const router = createBrowserRouter([
   {
@@ -25,11 +26,11 @@ const router = createBrowserRouter([
         element: <AddCraftItem></AddCraftItem>,
       },
       {
-        path: "/update-craft-item/:id",
-        element: <UpdateCrafts></UpdateCrafts>,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/arts-craft/${params.id}`),
+        path: "/updateCraftItem/:id",
+        element: <UpdateCraftItem></UpdateCraftItem>,
+        loader:({params})=>fetch(`http://localhost:5000/arts-craft/${params.id}`)
       },
+      
       {
         path: "/my-art-craft-list",
         element: <MyArtCraftList></MyArtCraftList>,

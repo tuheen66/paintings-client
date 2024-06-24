@@ -1,15 +1,28 @@
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const AddCraftItem = () => {
+const UpdateCraftItem = () => {
+  const loadedCraftItems = useLoaderData();
+  const {
+    _id,
+    userName,
+    email,
+    image,
+    itemName,
+    subcategoryName,
+    price,
+    rating,
+    customization,
+    processingTime,
+    stockStatus,
+    description,
+  } = loadedCraftItems;
 
- 
-  const handleAddCrafts = (e) => {
+  const handleUpdateCrafts = (e) => {
     e.preventDefault();
 
     const form = e.target;
 
-    const userName = form.userName.value;
-    const email = form.email.value;
     const image = form.image.value;
     const itemName = form.itemName.value;
     const subcategoryName = form.subcategoryName.value;
@@ -20,9 +33,7 @@ const AddCraftItem = () => {
     const stockStatus = form.stockStatus.value;
     const description = form.description.value;
 
-    const newCraftItem = {
-      userName,
-      email,
+    const updatedCraftItem = {
       image,
       itemName,
       subcategoryName,
@@ -34,37 +45,33 @@ const AddCraftItem = () => {
       description,
     };
 
-    console.log(newCraftItem);
-
-    fetch("http://localhost:5000/arts-craft", {
-      method: "POST",
+    fetch(`http://localhost:5000/arts-craft/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newCraftItem),
+      body: JSON.stringify(updatedCraftItem),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "success!",
-            text: "Craft added successfully",
+            text: "Craft item updated successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
         }
-        form.reset();
       });
   };
 
   return (
     <div>
       <div className="w-[90%] lg:w-1/2 bg-[#7ed6df] p-8 mx-auto text-gray-700 mb-8">
-        <h2 className="text-center text-4xl font-bold">Add Craft Item</h2>
+        <h2 className="text-center text-4xl font-bold">Update Craft Item</h2>
 
-        <form onSubmit={handleAddCrafts} className="form-action">
+        <form onSubmit={handleUpdateCrafts} className="form-action">
           {/* user name and user email row */}
           <div className="lg:flex gap-4 mt-8">
             <div className="w-full">
@@ -75,9 +82,11 @@ const AddCraftItem = () => {
                 className="bg-gray-200 py-2 px-4 w-full mb-2"
                 type="text"
                 placeholder="User name"
+                defaultValue={userName}
                 name="userName"
                 id="userName"
                 required
+                disabled
               />
             </div>
 
@@ -89,9 +98,11 @@ const AddCraftItem = () => {
                 className="bg-gray-200 py-2 px-4 w-full mb-2"
                 type="email"
                 placeholder="User email"
+                defaultValue={email}
                 name="email"
                 id="email"
                 required
+                disabled
               />
             </div>
           </div>
@@ -104,6 +115,7 @@ const AddCraftItem = () => {
               className="bg-gray-200 py-2 px-4 w-full mb-2"
               type="text"
               placeholder="Image url"
+              defaultValue={image}
               name="image"
               id="image"
               required
@@ -119,7 +131,7 @@ const AddCraftItem = () => {
               <input
                 className="bg-gray-200 py-2 px-4 w-full mb-2"
                 type="text"
-                placeholder="Item Name"
+                defaultValue={itemName}
                 name="itemName"
                 id="item_name"
                 required
@@ -134,6 +146,7 @@ const AddCraftItem = () => {
                 className="bg-gray-200 py-2 px-4 w-full mb-2"
                 type="text"
                 placeholder="Sub Category"
+                defaultValue={subcategoryName}
                 name="subcategoryName"
                 id="subcategory_Name"
                 required
@@ -151,6 +164,7 @@ const AddCraftItem = () => {
                 className="bg-gray-200 py-2 px-4 w-full mb-2"
                 type="text"
                 placeholder="Price"
+                defaultValue={price}
                 name="price"
                 id="price"
                 required
@@ -165,6 +179,7 @@ const AddCraftItem = () => {
                 className="bg-gray-200 py-2 px-4 w-full mb-2"
                 type="text"
                 placeholder="Rating"
+                defaultValue={rating}
                 name="rating"
                 id="rating"
                 required
@@ -182,6 +197,7 @@ const AddCraftItem = () => {
                 className="bg-gray-200 py-2 px-4 w-full mb-2"
                 type="text"
                 placeholder="Customization - yes OR no"
+                defaultValue={customization}
                 name="customization"
                 id="customization"
                 required
@@ -196,6 +212,7 @@ const AddCraftItem = () => {
                 className="bg-gray-200 py-2 px-4 w-full mb-2"
                 type="text"
                 placeholder="Processing time"
+                defaultValue={processingTime}
                 name="processingTime"
                 id="processing_time"
                 required
@@ -212,6 +229,7 @@ const AddCraftItem = () => {
                 className="bg-gray-200 py-2 px-4 w-full mb-2"
                 type="text"
                 placeholder="Stock Status - In stock OR Made to Order"
+                defaultValue={stockStatus}
                 name="stockStatus"
                 id="stock_status"
                 required
@@ -229,6 +247,7 @@ const AddCraftItem = () => {
                 className="bg-gray-200 py-2 px-4 w-full mb-2"
                 rows="3"
                 placeholder="Description"
+                defaultValue={description}
                 name="description"
                 id="description"
                 required
@@ -240,7 +259,7 @@ const AddCraftItem = () => {
           <input
             className="btn rounded-none bg-[#f0932b] text-white w-full border-none text-lg hover:bg-[#30336b] "
             type="submit"
-            value="Add Craft Item"
+            value="Update Craft Item"
           />
         </form>
       </div>
@@ -248,4 +267,4 @@ const AddCraftItem = () => {
   );
 };
 
-export default AddCraftItem;
+export default UpdateCraftItem;

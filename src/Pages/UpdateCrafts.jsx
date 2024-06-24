@@ -69,8 +69,9 @@ const UpdateCrafts = () => {
 
   return (
     <div>
+      id = {_id}
       <div className="w-[90%] lg:w-1/2 bg-[#7ed6df] p-8 mx-auto text-gray-700 mb-8">
-        <h2 className="text-center text-4xl font-bold">Add Craft Item</h2>
+        <h2 className="text-center text-4xl font-bold">Update Craft Item</h2>
 
         <form onSubmit={handleUpdateCraftItem} className="form-action">
           {/* user name and user email row */}

@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const MyArtCraftListCard = ({ myList }) => {
   const {
+    _id,
     image,
     itemName,
     subcategoryName,
@@ -46,11 +49,18 @@ const MyArtCraftListCard = ({ myList }) => {
             <span className="font-bold">Description:</span>
             {description.slice(0, 150) + " . . ."}
           </p>
-          {/* <Link to={`view-details/${_id}`}> */}
-          <button className="btn btn-sm bg-[#f0932b] hover:bg-[#30336b] w-full border-none text-white rounded-none font-bold mt-4">
-            View Details
-          </button>
-          {/* </Link> */}
+
+          <div className="flex justify-center gap-8 px-4">
+            <Link to={`/updateCraftItem/${_id}`}>
+              <button className="btn btn-sm bg-[#2ecc71] hover:bg-[#30336b]   border-none text-white rounded-none font-bold mt-4">
+                Update
+              </button>
+            </Link>
+
+            <button className="btn btn-sm bg-[#e74c3c] hover:bg-[#30336b] w-1/2  border-none text-white rounded-none font-bold mt-4">
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>
