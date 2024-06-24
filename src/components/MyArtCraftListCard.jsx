@@ -50,16 +50,18 @@ const MyArtCraftListCard = ({ myList }) => {
             {description.slice(0, 150) + " . . ."}
           </p>
 
-          <div className="flex justify-center gap-8 px-4">
-            <Link to={`/updateCraftItem/${_id}`}>
-              <button className="btn btn-sm bg-[#2ecc71] hover:bg-[#30336b]   border-none text-white rounded-none font-bold mt-4">
+          <div className=" flex justify-between gap-8 px-2">
+            <Link to={`/updateCraftItem/${_id}`} className="w-1/2">
+              <button className="btn btn-sm bg-[#2ecc71] hover:bg-[#30336b] w-full  border-none text-white rounded-none font-bold mt-4">
                 Update
               </button>
             </Link>
 
-            <button className="btn btn-sm bg-[#e74c3c] hover:bg-[#30336b] w-1/2  border-none text-white rounded-none font-bold mt-4">
+            <div className="w-1/2">
+            <button className="btn btn-sm bg-[#e74c3c] hover:bg-[#30336b] w-full  border-none text-white rounded-none font-bold mt-4">
               Delete
             </button>
+            </div>
           </div>
         </div>
       </div>

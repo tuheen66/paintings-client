@@ -12,6 +12,7 @@ import MyArtCraftList from "./Pages/MyArtCraftList";
 import UpdateCraftItem from "./Pages/UpdateCraftItem";
 import AllCraftItems from "./Pages/AllCraftItems";
 import ViewDetails from "./Pages/ViewDetails";
+import SubCategoryDetails from "./Pages/SubCategoryDetails";
 
 const router = createBrowserRouter([
   {
@@ -30,24 +31,32 @@ const router = createBrowserRouter([
       {
         path: "/updateCraftItem/:id",
         element: <UpdateCraftItem></UpdateCraftItem>,
-        loader:({params})=>fetch(`http://localhost:5000/arts-craft/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/arts-craft/${params.id}`),
       },
-      
+
       {
         path: "/myArtCraftList",
         element: <MyArtCraftList></MyArtCraftList>,
         loader: () => fetch("http://localhost:5000/arts-craft"),
       },
       {
-        path:'/allCraftItem',
-        element:<AllCraftItems></AllCraftItems>,
+        path: "/allCraftItem",
+        element: <AllCraftItems></AllCraftItems>,
         loader: () => fetch("http://localhost:5000/arts-craft"),
       },
       {
-        path:'/viewDetails/:id',
-        element:<ViewDetails></ViewDetails>,
-        loader:({params})=>fetch(`http://localhost:5000/arts-craft/${params.id}`)
-      }
+        path: "/viewDetails/:id",
+        element: <ViewDetails></ViewDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/arts-craft/${params.id}`),
+      },
+      {
+        path: "/subCategoryDetails/:id",
+        element: <SubCategoryDetails></SubCategoryDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/subcategory/${params.id}`),
+      },
     ],
   },
 ]);
