@@ -40,8 +40,6 @@ const Login = () => {
       });
   };
 
-
-
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
@@ -54,19 +52,11 @@ const Login = () => {
       });
   };
 
-const handleGithubSignIn=()=>{
+  const handleGithubSignIn = () => {
+    githubSignIn();
 
-    githubSignIn( )
-    .then((result) => {
-        console.log(result.user);
-
-        navigate(location?.state ? location.state : "/");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-}
-
+    navigate(location?.state ? location.state : "/");
+  };
 
   return (
     <div>
@@ -117,13 +107,18 @@ const handleGithubSignIn=()=>{
           <p>
             Sign In with
             <span
-                onClick={handleGoogleSignIn}
+              onClick={handleGoogleSignIn}
               className="text-[#eb4d4b] font-bold mx-2 cursor-pointer hover:underline"
             >
               Google
             </span>
-            OR <span onClick={handleGithubSignIn}
-             className="font-bold text-blue-600 ml-2 cursor-pointer hover:underline">Github</span>
+            OR{" "}
+            <span
+              onClick={handleGithubSignIn}
+              className="font-bold text-blue-600 ml-2 cursor-pointer hover:underline"
+            >
+              Github
+            </span>
           </p>
           <p>
             New to this site? Please

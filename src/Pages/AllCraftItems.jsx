@@ -6,6 +6,20 @@ const AllCraftItems = () => {
   
   return (
     <div className="w-[90%] mx-auto">
+      <div>
+      <div className="text-center my-12 w-80 py-2  mx-auto bg-blue-200">
+        <label className="">Sort by :</label>
+        <select
+          className=" mx-2  bg-[#f0932b] text-white p-1 "
+          
+        >
+          <option></option>
+          <option className="text-white" value="averageCost">
+            Average Cost - Descending
+          </option>
+        </select>
+      </div>
+      </div>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

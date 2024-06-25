@@ -17,6 +17,7 @@ import ErrorPage from "./Pages/ErrorPage";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import AuthProvider from "./providers/AuthProvider";
+import PrivateRoutes from './routes/PrivateRoutes';
 
 const router = createBrowserRouter([
   {
@@ -31,18 +32,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/addCraftItem",
-        element: <AddCraftItem></AddCraftItem>,
+        element: <PrivateRoutes><AddCraftItem></AddCraftItem></PrivateRoutes> ,
       },
       {
         path: "/updateCraftItem/:id",
-        element: <UpdateCraftItem></UpdateCraftItem>,
+        element: <PrivateRoutes><UpdateCraftItem></UpdateCraftItem></PrivateRoutes> ,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/arts-craft/${params.id}`),
       },
 
       {
         path: "/myArtCraftList",
-        element: <MyArtCraftList></MyArtCraftList>,
+        element: <PrivateRoutes ><MyArtCraftList></MyArtCraftList></PrivateRoutes> ,
         loader: () => fetch("http://localhost:5000/arts-craft"),
       },
       {
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/viewDetails/:id",
-        element: <ViewDetails></ViewDetails>,
+        element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes> ,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/arts-craft/${params.id}`),
       },
