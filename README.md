@@ -1,8 +1,16 @@
-# React + Vite
+Website name: Colorful Canvas.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live site URL :
 
-Currently, two official plugins are available:
+Website Category: Painting & Drawing.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features:
+
+1. The website is for a store that sells different types of paintings and drawings.
+2. Users can register and add there paintings in the site to sell.
+
+3. Any visitor can see the artworks displayed in tabular format but to view the details of the artwork visitor must be a registered user.
+
+4. Registered user can update or delete their own artwork but he/she cannot do so to other's artwork.
+
+5. Users can register with their email and password or they can sign up with their google or github account.
