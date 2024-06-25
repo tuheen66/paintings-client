@@ -4,6 +4,7 @@ import Slider from "../components/Slider";
 import Categories from "../components/Categories";
 import TypeWriter from "../components/TypeWriter";
 import { Slide } from "react-awesome-reveal";
+import SmallImageSlider from "../components/SmallImageSlider";
 
 const Home = () => {
   const craftItems = useLoaderData();
@@ -21,11 +22,12 @@ const Home = () => {
         <h2 className="text-4xl font-bold text-center  mb-8">Craft Items</h2>
       </Slide>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
         {myCraftItems.map((myCraft) => (
           <CraftCardHome key={myCraft._id} myCraft={myCraft}></CraftCardHome>
         ))}
       </div>
+      <SmallImageSlider></SmallImageSlider>
       <Slide>
         <TypeWriter></TypeWriter>
       </Slide>

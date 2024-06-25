@@ -29,7 +29,7 @@ const Slider = () => {
     return (
         <div className="mb-8 ">
       <Swiper
-        className="mySwiper"
+        className="mySwiper "
         // install Swiper modules
         modules={[Navigation, Pagination, Autoplay, Scrollbar, A11y]}
         spaceBetween={50}
