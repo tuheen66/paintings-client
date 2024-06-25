@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
 
 import { Link } from "react-router-dom";
-import { Fade } from "react-awesome-reveal";
+import { Bounce } from "react-awesome-reveal";
 
 const CategoryCard = ({ category }) => {
   const { _id, subcategory, image, description } = category;
   return (
     <Link to={`/subCategoryDetails/${_id}`}>
       <div className="my-4 bg-[#a45eea4f] shadow-lg shadow-gray-400 p-4 hover:scale-105 duration-500">
-        <Fade>
+        <Bounce>
           <h2 className="text-center text-3xl font-bold mb-4">{subcategory}</h2>
-        </Fade>
+        </Bounce>
         <div className="">
           <img src={image} alt="" />
           <p className="mt-4 text-justify ">

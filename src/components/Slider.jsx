@@ -27,7 +27,7 @@ import slider6 from '../assets/slider/slide6.jpg'
 
 const Slider = () => {
     return (
-        <div className="mb-8 ">
+        <div className="my-8 ">
       <Swiper
         className="mySwiper "
         // install Swiper modules

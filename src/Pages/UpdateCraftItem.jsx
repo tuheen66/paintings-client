@@ -67,44 +67,11 @@ const UpdateCraftItem = () => {
 
   return (
     <div>
-      <div className="w-[90%] lg:w-1/2 bg-[#7ed6df] p-8 mx-auto text-gray-700 mb-8">
+      <div className="w-[90%] lg:w-1/2 bg-[#7ed6df] p-8 mx-auto text-gray-700 my-8">
         <h2 className="text-center text-4xl font-bold">Update Craft Item</h2>
 
         <form onSubmit={handleUpdateCrafts} className="form-action">
-          {/* user name and user email row */}
-          <div className="lg:flex gap-4 mt-8">
-            {/* <div className="w-full">
-              <label className="pl-4 font-bold" htmlFor="userName">
-                User name:
-              </label>
-              <input
-                className="bg-gray-200 py-2 px-4 w-full mb-2"
-                type="text"
-                placeholder="User name"
-                defaultValue={userName}
-                name="userName"
-                id="userName"
-                required
-                disabled
-              />
-            </div> */}
-
-            {/* <div className="w-full">
-              <label className="pl-4 font-bold" htmlFor="email">
-                User email:
-              </label>
-              <input
-                className="bg-gray-200 py-2 px-4 w-full mb-2"
-                type="email"
-                placeholder="User email"
-                defaultValue={email}
-                name="email"
-                id="email"
-                required
-                disabled
-              />
-            </div> */}
-          </div>
+          
           {/* image row */}
           <div className="w-full">
             <label className="pl-4 font-bold" htmlFor="image">

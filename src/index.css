@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.active{
-    background-color: #f0932b;
-    padding: 6px 12px;
-    color:white;
-    font-weight:700;
-    letter-spacing:2px;
-    font-size:18px
+.active {
+  background-color: #f0932b;
+  padding: 6px 12px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 18px;
 }
+

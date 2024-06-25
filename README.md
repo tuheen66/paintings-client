@@ -14,3 +14,7 @@ Features:
 4. Registered user can update or delete their own artwork but he/she cannot do so to other's artwork.
 
 5. Users can register with their email and password or they can sign up with their google or github account.
+
+6. Implemented two packages : React-simple-typewriter and React Awesome reveal
+
+7. Implemented dart light theme for Home page as per requirement - challenge requirement - point #3
