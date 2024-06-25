@@ -5,7 +5,7 @@ const UpdateCraftItem = () => {
   const loadedCraftItems = useLoaderData();
   const {
     _id,
-    
+
     image,
     itemName,
     subcategoryName,
@@ -44,7 +44,7 @@ const UpdateCraftItem = () => {
       description,
     };
 
-    fetch(`http://localhost:5000/arts-craft/${_id}`, {
+    fetch(`https://painting-server-six.vercel.app/arts-craft/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -71,7 +71,6 @@ const UpdateCraftItem = () => {
         <h2 className="text-center text-4xl font-bold">Update Craft Item</h2>
 
         <form onSubmit={handleUpdateCrafts} className="form-action">
-          
           {/* image row */}
           <div className="w-full">
             <label className="pl-4 font-bold" htmlFor="image">

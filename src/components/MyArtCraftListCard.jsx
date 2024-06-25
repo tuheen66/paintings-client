@@ -1,20 +1,18 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-
 /* eslint-disable react/prop-types */
 const MyArtCraftListCard = ({ newList, newLists, setNewLists }) => {
   const {
     _id,
     image,
     itemName,
-    
+
     customization,
     description,
     price,
     rating,
     stockStatus,
-    
   } = newList;
 
   const handleDelete = (_id) => {
@@ -28,7 +26,7 @@ const MyArtCraftListCard = ({ newList, newLists, setNewLists }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/art-craft/${_id}`, {
+        fetch(`https://painting-server-six.vercel.app/art-craft/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -57,7 +55,7 @@ const MyArtCraftListCard = ({ newList, newLists, setNewLists }) => {
 
         <div className="flex-grow space-y-2 p-4">
           <p className="font-bold text-2xl">{itemName}</p>
-          
+
           <p>
             <span className="font-bold">Price: </span>$ {price}
           </p>
@@ -69,12 +67,11 @@ const MyArtCraftListCard = ({ newList, newLists, setNewLists }) => {
             <span className="font-bold">Customization: </span>
             {customization}
           </p>
-         
+
           <p>
             <span className="font-bold">Stock Status: </span>
             {stockStatus}
           </p>
-          
 
           <p>
             <span className="font-bold">Description:</span>

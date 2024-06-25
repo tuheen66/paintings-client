@@ -1,8 +1,6 @@
 import Swal from "sweetalert2";
 
 const AddCraftItem = () => {
-
- 
   const handleAddCrafts = (e) => {
     e.preventDefault();
 
@@ -36,7 +34,7 @@ const AddCraftItem = () => {
 
     console.log(newCraftItem);
 
-    fetch("http://localhost:5000/arts-craft", {
+    fetch("https://painting-server-six.vercel.app/arts-craft", {
       method: "POST",
       headers: {
         "content-type": "application/json",

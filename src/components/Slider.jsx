@@ -58,8 +58,8 @@ const Slider = () => {
         <SwiperSlide>
           <img src={slider5} className="w-full" />
         </SwiperSlide>
-        <SwiperSlide>
-          <img src={slider6} className="w-full" />
+        <SwiperSlide className="bg-black">
+          <img src={slider6} className="w-full rounded-3xl" />
         </SwiperSlide>
       </Swiper>
     </div>

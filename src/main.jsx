@@ -17,7 +17,7 @@ import ErrorPage from "./Pages/ErrorPage";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import AuthProvider from "./providers/AuthProvider";
-import PrivateRoutes from './routes/PrivateRoutes';
+import PrivateRoutes from "./routes/PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -28,40 +28,65 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/arts-craft"),
+        loader: () =>
+          fetch("https://painting-server-six.vercel.app/arts-craft"),
       },
       {
         path: "/addCraftItem",
-        element: <PrivateRoutes><AddCraftItem></AddCraftItem></PrivateRoutes> ,
+        element: (
+          <PrivateRoutes>
+            <AddCraftItem></AddCraftItem>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/updateCraftItem/:id",
-        element: <PrivateRoutes><UpdateCraftItem></UpdateCraftItem></PrivateRoutes> ,
+        element: (
+          <PrivateRoutes>
+            <UpdateCraftItem></UpdateCraftItem>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/arts-craft/${params.id}`),
+          fetch(
+            `https://painting-server-six.vercel.app/arts-craft/${params.id}`
+          ),
       },
 
       {
         path: "/myArtCraftList",
-        element: <PrivateRoutes ><MyArtCraftList></MyArtCraftList></PrivateRoutes> ,
-        loader: () => fetch("http://localhost:5000/arts-craft"),
+        element: (
+          <PrivateRoutes>
+            <MyArtCraftList></MyArtCraftList>
+          </PrivateRoutes>
+        ),
+        loader: () =>
+          fetch("https://painting-server-six.vercel.app/arts-craft"),
       },
       {
         path: "/allCraftItem",
         element: <AllCraftItems></AllCraftItems>,
-        loader: () => fetch("http://localhost:5000/arts-craft"),
+        loader: () =>
+          fetch("https://painting-server-six.vercel.app/arts-craft"),
       },
       {
         path: "/viewDetails/:id",
-        element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes> ,
+        element: (
+          <PrivateRoutes>
+            <ViewDetails></ViewDetails>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/arts-craft/${params.id}`),
+          fetch(
+            `https://painting-server-six.vercel.app/arts-craft/${params.id}`
+          ),
       },
       {
         path: "/subCategoryDetails/:id",
         element: <SubCategoryDetails></SubCategoryDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/subcategory/${params.id}`),
+          fetch(
+            `https://painting-server-six.vercel.app/subcategory/${params.id}`
+          ),
       },
       {
         path: "/register",
