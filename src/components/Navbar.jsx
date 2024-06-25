@@ -45,7 +45,7 @@ const Navbar = () => {
                 <div className=" relative group ">
                   <img className="w-14 rounded-full  " src={user.photoURL} />
 
-                  <p className="opacity-0 group-hover:opacity-100 absolute w-48 text-center bottom-2 right-8 text-xl p-2 text-black font-semibold">
+                  <p className="opacity-0 group-hover:opacity-100 absolute w-44 text-center -bottom-4 right-16 text-xl text-gray-700 bg-gray-200 font-semibold">
                     {user.displayName}
                   </p>
                 </div>

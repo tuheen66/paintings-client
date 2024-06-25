@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, googleSignIn, githubSignIn } = useContext(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -39,6 +39,34 @@ const Login = () => {
         });
       });
   };
+
+
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
+
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+const handleGithubSignIn=()=>{
+
+    githubSignIn( )
+    .then((result) => {
+        console.log(result.user);
+
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+}
+
 
   return (
     <div>
@@ -89,12 +117,13 @@ const Login = () => {
           <p>
             Sign In with
             <span
-              //   onClick={handleGoogleSignIn}
+                onClick={handleGoogleSignIn}
               className="text-[#eb4d4b] font-bold mx-2 cursor-pointer hover:underline"
             >
               Google
             </span>
-            OR <span className="font-bold text-blue-600 ml-2">Github</span>
+            OR <span onClick={handleGithubSignIn}
+             className="font-bold text-blue-600 ml-2 cursor-pointer hover:underline">Github</span>
           </p>
           <p>
             New to this site? Please
