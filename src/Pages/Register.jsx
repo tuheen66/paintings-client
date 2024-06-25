@@ -1,19 +1,49 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-
-const handleRegister = (e) => {
-  e.preventdefault();
-
-  const form = e.target;
-
-  const name = form.name.value;
-  const photo = form.photo.value;
-  const email = form.email.value;
-  const password = form.password.value;
-
-  e.target.reset();
-};
+import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        Swal.fire({
+          title: "success!",
+          text: "You have been registered successfully",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => console.log("Profile updated"))
+          .catch((error) => {
+            console.error(error);
+          });
+
+        location.reload();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    e.target.reset();
+  };
+
   return (
     <div>
       <div className="w-[90%] lg:w-1/2 bg-blue-300 p-8  mx-auto text-gray-700 mb-8">
