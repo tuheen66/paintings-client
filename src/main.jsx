@@ -13,11 +13,15 @@ import UpdateCraftItem from "./Pages/UpdateCraftItem";
 import AllCraftItems from "./Pages/AllCraftItems";
 import ViewDetails from "./Pages/ViewDetails";
 import SubCategoryDetails from "./Pages/SubCategoryDetails";
+import ErrorPage from "./Pages/ErrorPage";
+import Register from "./Pages/Register";
+import Login from "./Pages/Login";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -56,6 +60,14 @@ const router = createBrowserRouter([
         element: <SubCategoryDetails></SubCategoryDetails>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/subcategory/${params.id}`),
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },
