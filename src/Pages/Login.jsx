@@ -1,40 +1,43 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
 const Login = () => {
-const {loginUser}= useContext(AuthContext)
+  const { loginUser } = useContext(AuthContext);
 
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+
+  const location = useLocation();
 
   const handleSignIn = (e) => {
-    e.preventDefault;
+    e.preventDefault();
+
     const form = e.target;
+
     const email = form.email.value;
     const password = form.password.value;
 
+    e.target.reset();
+
     loginUser(email, password)
-    .then((result) => {
-      console.log(result.user);
+      .then((result) => {
+        console.log(result.user);
 
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.error(error);
 
-
-      
-      e.target.reset();
-
-      
-    })
-    .catch((error) => {
-      console.error(error);
-
-      Swal.fire({
-        title: "Ooops!",
-        text: "Please provide valid email and correct password",
-        icon: "error",
-        confirmButtonText: "Oh no!",
+        Swal.fire({
+          title: "Ooops!",
+          text: "Please provide valid email and correct password",
+          icon: "error",
+          confirmButtonText: "Oh no!",
+        });
       });
-    });
-
   };
 
   return (
@@ -62,18 +65,17 @@ const {loginUser}= useContext(AuthContext)
             </label>
             <input
               className="bg-gray-200 py-2 px-4 w-full mb-2"
-              // type={showPassword ? "text" : "password"}
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               name="password"
               id="password"
             />
-            {/* <span
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-2 top-9"
-              >
-                {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
-              </span> */}
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-2 top-9"
+            >
+              {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+            </span>
           </div>
 
           <input
@@ -87,7 +89,7 @@ const {loginUser}= useContext(AuthContext)
           <p>
             Sign In with
             <span
-            //   onClick={handleGoogleSignIn}
+              //   onClick={handleGoogleSignIn}
               className="text-[#eb4d4b] font-bold mx-2 cursor-pointer hover:underline"
             >
               Google

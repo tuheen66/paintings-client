@@ -1,11 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+
+  const [showPassword, setShowPassword]=useState(false)
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -95,18 +98,18 @@ const Register = () => {
             </label>
             <input
               className="bg-gray-200 py-2 px-4 w-full mb-2"
-              //   type={showPassword ? "text" : "password"}
-              type="password"
+                type={showPassword ? "text" : "password"}
+              
               placeholder="Password"
               name="password"
               id="password"
             />
-            {/* <span
+            <span
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-2 top-9"
               >
                 {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
-              </span> */}
+              </span>
           </div>
 
           <input
