@@ -1,8 +1,40 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+const {loginUser}= useContext(AuthContext)
+
+
   const handleSignIn = (e) => {
     e.preventDefault;
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    loginUser(email, password)
+    .then((result) => {
+      console.log(result.user);
+
+
+
+      
+      e.target.reset();
+
+      
+    })
+    .catch((error) => {
+      console.error(error);
+
+      Swal.fire({
+        title: "Ooops!",
+        text: "Please provide valid email and correct password",
+        icon: "error",
+        confirmButtonText: "Oh no!",
+      });
+    });
+
   };
 
   return (
