@@ -8,16 +8,16 @@ import SmallImageSlider from "../components/SmallImageSlider";
 import { useEffect, useState } from "react";
 import "../../src/HomeStyles/Home.css";
 import ArtBuyingGuide from "../components/ArtBuyingGuide";
+import peacock from "../assets/guide.jpeg";
 
 const Home = () => {
-  
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
     const localTheme = localStorage.getItem("theme");
 
-    document.getElementById("home").setAttribute('class', localTheme);
+    document.getElementById("home").setAttribute("class", localTheme);
   }, [theme]);
 
   const handleToggle = (e) => {
@@ -41,9 +41,9 @@ const Home = () => {
     <div id="home" className="w-[90%] mx-auto home ">
       <div className="w-12">
         <label className="grid cursor-pointer place-items-center pt-4">
-          <input onChange={handleToggle}
+          <input
+            onChange={handleToggle}
             type="checkbox"
-            
             className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1"
           />
           <svg
@@ -91,14 +91,24 @@ const Home = () => {
       <Slide>
         <TypeWriter></TypeWriter>
       </Slide>
-      
+
       <Categories></Categories>
 
-      
+      <Slide>
+        <h2 className="text-center font-bold text-3xl my-8">
+        
+          Art Buying Guide
+        </h2>
+      </Slide>
+      <div className="grid grid-cols-1 lg:grid-cols-5 lg:gap-8 justify-">
+        <div className="col-span-3">
 
-
-      <ArtBuyingGuide></ArtBuyingGuide>
-
+        <ArtBuyingGuide></ArtBuyingGuide>
+        </div>
+        <div className=" lg:col-span-2 w-[90%] mx-auto lg:w-[75%] lg:ml-16 py-4 ">
+          <img className="w-full" src={peacock} alt="" />
+        </div>
+      </div>
     </div>
   );
 };

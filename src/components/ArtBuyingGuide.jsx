@@ -1,14 +1,10 @@
-import { Slide } from "react-awesome-reveal";
+
+
 
 const ArtBuyingGuide = () => {
   return (
     <div className="p-4 ">
-      <Slide>
-        <h2 className="text-center font-bold text-3xl my-8">
-          {" "}
-          Art Buying Guide
-        </h2>
-      </Slide>
+     
 
       <div className="collapse collapse-arrow bg-gray-300 mb-2 rounded-none">
         <input type="radio" name="my-accordion-2" defaultChecked />

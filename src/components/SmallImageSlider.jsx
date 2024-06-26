@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Parallax, Scrollbar, Autoplay } from "swiper/modules";
+import {  Parallax, Scrollbar, Autoplay } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
@@ -49,7 +49,7 @@ const SmallImageSlider = () => {
         <Swiper
           className=""
           // install Swiper modules
-          modules={[Pagination, Parallax, Autoplay, Scrollbar]}
+          modules={[ Parallax, Autoplay, Scrollbar]}
           spaceBetween={50}
           slidesPerView={5}
           loop={true}
@@ -57,7 +57,7 @@ const SmallImageSlider = () => {
           autoplay={{
             delay: 1000,
           }}
-          pagination={{ clickable: true }}
+          // pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
 
           // onSwiper={(swiper) => console.log(swiper)}
