@@ -7,6 +7,7 @@ import { Slide } from "react-awesome-reveal";
 import SmallImageSlider from "../components/SmallImageSlider";
 import { useEffect, useState } from "react";
 import "../../src/HomeStyles/Home.css";
+import ArtBuyingGuide from "../components/ArtBuyingGuide";
 
 const Home = () => {
   
@@ -90,7 +91,14 @@ const Home = () => {
       <Slide>
         <TypeWriter></TypeWriter>
       </Slide>
+      
       <Categories></Categories>
+
+      
+
+
+      <ArtBuyingGuide></ArtBuyingGuide>
+
     </div>
   );
 };

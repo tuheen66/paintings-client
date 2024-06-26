@@ -13,7 +13,7 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-2 gap-12  p-4">
+    <div className="grid lg:grid-cols-2 gap-12  p-4">
       {categories.map((category) => (
         <CategoryCard key={category._id} category={category}></CategoryCard>
       ))}

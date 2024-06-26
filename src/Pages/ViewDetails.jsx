@@ -18,7 +18,7 @@ const ViewDetails = () => {
   return (
     <div className="w-[90%] mx-auto mb-8 ">
       <h2 className="font-bold text-3xl text-center my-8">{itemName}</h2>
-      <div className="grid grid-cols-2 gap-8 mb-4 items-center bg-green-100 p-4">
+      <div className="grid lg:grid-cols-2 gap-8 mb-4 items-center bg-green-100 p-4">
         <div className="">
           <img className=" mx-auto" src={image} alt="" />
         </div>
